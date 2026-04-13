@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Reservations — Crowns Kitchen</title>
+  <meta name="description" content="Get in touch with Crowns Kitchen. Reserve a table, ask about catering, or just say hello." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-brand">
+          Crowns Kitchen
+          <span>Where Every Meal Tells a Story</span>
+        </a>
+        <div class="navbar-links">
+          <a href="index.html">Home</a>
+          <a href="menu.html">Menu</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="navbar-right">
+          <a href="menu.html" class="btn btn-primary">Order Now</a>
+          <button class="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="menu.html" class="btn btn-primary">Order Now</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- CONTACT HERO -->
+  <section class="contact-hero">
+    <div class="container">
+      <span class="eyebrow">Get in Touch</span>
+      <h1>We'd Love to Hear From You</h1>
+      <p>Questions, catering requests, feedback, or a table for two — reach out and we'll get back to you fast.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT MAIN -->
+  <section class="contact-main">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- LEFT: CONTACT INFO -->
+        <div class="contact-info">
+          <h2>Say Hello</h2>
+          <p>We're here Monday to Sunday. Reach us on any of these channels — WhatsApp is usually fastest.</p>
+
+          <a href="https://wa.me/233XXXXXXXXX" class="whatsapp-btn" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp" style="font-size:1.1rem;"></i> Chat on WhatsApp
+          </a>
+
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="contact-item-text">
+                <p>Accra Branch</p>
+                <p>Airport Residential Area, Greater Accra</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="contact-item-text">
+                <p>Tema Branch</p>
+                <p>Community 5, Tema, Greater Accra</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+              <div class="contact-item-text">
+                <p>Email</p>
+                <a href="mailto:hello@crownkitchen.com.gh">hello@crownkitchen.com.gh</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
+              <div class="contact-item-text">
+                <p>Phone</p>
+                <a href="tel:+233XXXXXXXXX">+233 XX XXX XXXX</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hours-table">
+            <h4>Opening Hours</h4>
+            <div class="hours-row"><span>Monday – Friday</span><span>7:00am – 10:00pm</span></div>
+            <div class="hours-row"><span>Saturday</span><span>8:00am – 11:00pm</span></div>
+            <div class="hours-row"><span>Sunday</span><span>8:00am – 11:00pm</span></div>
+            <div class="hours-row"><span>Public Holidays</span><span>9:00am – 9:00pm</span></div>
+          </div>
+        </div>
+
+        <!-- RIGHT: CONTACT FORM -->
+        <div class="contact-form-wrap">
+          <h2>Send Us a Message</h2>
+          <p>Fill out the form and we'll get back to you within 24 hours.</p>
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-name">Full Name</label>
+                <input type="text" id="cf-name" name="name" placeholder="e.g. Abena Mensah" required />
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email Address</label>
+                <input type="email" id="cf-email" name="email" placeholder="e.g. abena@email.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-phone">Phone Number</label>
+                <input type="tel" id="cf-phone" name="phone" placeholder="+233 XX XXX XXXX" />
+              </div>
+              <div class="form-group">
+                <label for="cf-subject">Subject</label>
+                <select id="cf-subject" name="subject" required>
+                  <option value="" disabled selected>Select a subject</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="catering">Catering Request</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="partnership">Partnership</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cf-message">Your Message</label>
+              <textarea id="cf-message" name="message" placeholder="Tell us what's on your mind..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:0.9rem;">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVATION -->
+  <section class="reservation" id="reservation">
+    <div class="container">
+      <div class="reservation-inner">
+        <div class="section-header">
+          <span class="eyebrow">Dine In</span>
+          <h2 class="section-heading">Reserve a Table</h2>
+          <p class="section-sub" style="margin:0 auto;">Book ahead to guarantee your spot. We'll confirm your reservation within 2 hours via WhatsApp or phone.</p>
+        </div>
+        <div class="reservation-form">
+          <form id="reservation-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="res-name">Full Name</label>
+                <input type="text" id="res-name" name="name" placeholder="e.g. Kwame Asante" required />
+              </div>
+              <div class="form-group">
+                <label for="res-phone">Phone Number</label>
+                <input type="tel" id="res-phone" name="phone" placeholder="+233 XX XXX XXXX" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="res-branch">Branch</label>
+                <select id="res-branch" name="branch" required>
+                  <option value="" disabled selected>Select branch</option>
+                  <option value="accra">Accra — Airport Residential</option>
+                  <option value="tema">Tema — Community 5</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="res-guests">Number of Guests</label>
+                <select id="res-guests" name="guests" required>
+                  <option value="" disabled selected>Select</option>
+                  <option value="1">1 person</option>
+                  <option value="2">2 people</option>
+                  <option value="3">3 people</option>
+                  <option value="4">4 people</option>
+                  <option value="5">5 people</option>
+                  <option value="6">6 people</option>
+                  <option value="7plus">7+ people</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="res-date">Date</label>
+                <input type="date" id="res-date" name="date" required />
+              </div>
+              <div class="form-group">
+                <label for="res-time">Preferred Time</label>
+                <select id="res-time" name="time" required>
+                  <option value="" disabled selected>Select time</option>
+                  <option>8:00 AM</option>
+                  <option>9:00 AM</option>
+                  <option>10:00 AM</option>
+                  <option>11:00 AM</option>
+                  <option>12:00 PM</option>
+                  <option>1:00 PM</option>
+                  <option>2:00 PM</option>
+                  <option>3:00 PM</option>
+                  <option>4:00 PM</option>
+                  <option>5:00 PM</option>
+                  <option>6:00 PM</option>
+                  <option>7:00 PM</option>
+                  <option>8:00 PM</option>
+                  <option>9:00 PM</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="res-requests">Special Requests (optional)</label>
+              <textarea id="res-requests" name="requests" placeholder="Dietary requirements, occasion, seating preferences..." style="min-height:80px;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:0.9rem;">
+              <i class="fas fa-calendar-check"></i> Request Reservation
+            </button>
+            <div class="reservation-note">
+              <i class="fas fa-circle-info"></i>
+              Reservations are confirmed within 2 hours via WhatsApp or phone call. No payment required at this stage.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Crowns Kitchen</div>
+        <div class="footer-tagline">Where Every Meal Tells a Story</div>
+        <p class="footer-desc">A food brand built on the belief that great food should not be limited by borders, budgets, or backgrounds.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/233XXXXXXXXX" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Our Menu</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p><i class="fas fa-map-marker-alt" style="color:#F0A07A;margin-right:6px;font-size:0.8rem;"></i> Airport Residential, Accra</p>
+        <p><i class="fas fa-map-marker-alt" style="color:#F0A07A;margin-right:6px;font-size:0.8rem;"></i> Community 5, Tema</p>
+        <a href="mailto:hello@crownkitchen.com.gh"><i class="fas fa-envelope" style="color:#F0A07A;margin-right:6px;font-size:0.8rem;"></i> hello@crownkitchen.com.gh</a>
+        <div style="margin-top:1rem;">
+          <div class="hours-row"><span>Mon – Fri</span><span>7am – 10pm</span></div>
+          <div class="hours-row"><span>Sat – Sun</span><span>8am – 11pm</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Crowns Kitchen. All rights reserved.</p>
+      <p class="footer-locations"><span>Accra</span> &middot; <span>Tema</span> &middot; Coming Soon: Kumasi &middot; Takoradi</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/233XXXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>

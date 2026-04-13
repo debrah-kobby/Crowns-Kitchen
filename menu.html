@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Menu — Crowns Kitchen</title>
+  <meta name="description" content="Browse Crowns Kitchen's full menu — Ghanaian local dishes, continental favourites, sides, drinks, and specials." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-brand">
+          Crowns Kitchen
+          <span>Where Every Meal Tells a Story</span>
+        </a>
+        <div class="navbar-links">
+          <a href="index.html">Home</a>
+          <a href="menu.html">Menu</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="navbar-right">
+          <a href="contact.html" class="btn btn-primary">Order Now</a>
+          <button class="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn btn-primary">Order Now</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- MENU HERO -->
+  <section class="menu-hero">
+    <div class="container">
+      <span class="eyebrow">Crowns Kitchen</span>
+      <h1>Our Menu</h1>
+      <p>From Accra's finest local dishes to continental favourites — something for every story, every appetite, every occasion.</p>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-wrap">
+    <div class="container">
+      <div class="filter-pills">
+        <button class="filter-pill active" data-filter="all">All</button>
+        <button class="filter-pill" data-filter="local">Local</button>
+        <button class="filter-pill" data-filter="continental">Continental</button>
+        <button class="filter-pill" data-filter="sides">Sides</button>
+        <button class="filter-pill" data-filter="drinks">Drinks</button>
+        <button class="filter-pill" data-filter="specials">Specials</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MENU GRID -->
+  <section class="menu-section">
+    <div class="container">
+      <div class="menu-grid">
+
+        <!-- LOCAL -->
+        <div class="menu-card" data-category="local">
+          <div class="menu-card-img img-placeholder"><span>[ Jollof Rice &<br />Grilled Chicken ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Jollof Rice & Grilled Chicken</p>
+              <span class="badge badge-primary">Local</span>
+            </div>
+            <p class="menu-card-desc">Ghana's proudest dish — smoky, perfectly seasoned jollof rice with juicy marinated grilled chicken.</p>
+            <div class="menu-card-tags">
+              <span class="diet-tag spicy">Spicy</span>
+              <span class="diet-tag halal">Halal</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 45</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="local">
+          <div class="menu-card-img img-placeholder"><span>[ Waakye Special ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Waakye Special</p>
+              <span class="badge badge-primary">Local</span>
+            </div>
+            <p class="menu-card-desc">Rice and beans with spaghetti, boiled eggs, fried fish, and our signature waakye stew. A full experience.</p>
+            <div class="menu-card-tags">
+              <span class="diet-tag halal">Halal</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 38</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="local">
+          <div class="menu-card-img img-placeholder"><span>[ Banku &<br />Tilapia ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Banku & Grilled Tilapia</p>
+              <span class="badge badge-primary">Local</span>
+            </div>
+            <p class="menu-card-desc">Fermented banku paired with whole grilled tilapia, pepper sauce, and fresh vegetables on the side.</p>
+            <div class="menu-card-tags">
+              <span class="diet-tag spicy">Spicy</span>
+              <span class="diet-tag halal">Halal</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 60</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="local">
+          <div class="menu-card-img img-placeholder"><span>[ Fufu &<br />Light Soup ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Fufu & Light Soup</p>
+              <span class="badge badge-primary">Local</span>
+            </div>
+            <p class="menu-card-desc">Hand-pounded fufu served in a rich light soup with your choice of chicken, goat, or fish.</p>
+            <div class="menu-card-tags">
+              <span class="diet-tag halal">Halal</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 42</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTINENTAL -->
+        <div class="menu-card" data-category="continental">
+          <div class="menu-card-img img-placeholder"><span>[ Pasta Primavera ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Pasta Primavera</p>
+              <span class="badge badge-grey">Continental</span>
+            </div>
+            <p class="menu-card-desc">Al dente pasta with garden vegetables in a rich tomato and herb sauce, finished with parmesan.</p>
+            <div class="menu-card-tags">
+              <span class="diet-tag veg">Vegetarian</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 52</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="continental">
+          <div class="menu-card-img img-placeholder"><span>[ Beef Stir-Fry<br />& Rice ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Beef Stir-Fry & Rice</p>
+              <span class="badge badge-grey">Continental</span>
+            </div>
+            <p class="menu-card-desc">Tender beef strips stir-fried with peppers, onions, and mixed vegetables in a savoury soy-garlic sauce.</p>
+            <div class="menu-card-tags">
+              <span class="diet-tag spicy">Spicy</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 58</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="continental">
+          <div class="menu-card-img img-placeholder"><span>[ Crowns Burger<br />Deluxe ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Crowns Burger Deluxe</p>
+              <span class="badge badge-grey">Continental</span>
+            </div>
+            <p class="menu-card-desc">Double beef patty, caramelised onions, Crowns special sauce, lettuce and tomato in a toasted brioche bun.</p>
+            <div class="menu-card-tags"></div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 65</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="continental">
+          <div class="menu-card-img img-placeholder"><span>[ Grilled Chicken<br />& Fries ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Grilled Chicken & Fries</p>
+              <span class="badge badge-grey">Continental</span>
+            </div>
+            <p class="menu-card-desc">Herb-marinated grilled chicken breast served with crispy golden fries and a side of coleslaw.</p>
+            <div class="menu-card-tags">
+              <span class="diet-tag halal">Halal</span>
+            </div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 55</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIDES -->
+        <div class="menu-card" data-category="sides">
+          <div class="menu-card-img img-placeholder"><span>[ Fried Plantain ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Fried Plantain</p>
+              <span class="badge badge-grey">Sides</span>
+            </div>
+            <p class="menu-card-desc">Sweet, ripe plantain slices fried to golden perfection. The perfect companion to any main dish.</p>
+            <div class="menu-card-tags"><span class="diet-tag veg">Vegetarian</span></div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 12</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="sides">
+          <div class="menu-card-img img-placeholder"><span>[ Garden Salad ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Garden Salad</p>
+              <span class="badge badge-grey">Sides</span>
+            </div>
+            <p class="menu-card-desc">Fresh lettuce, tomatoes, cucumber, and onions tossed in our house vinaigrette dressing.</p>
+            <div class="menu-card-tags"><span class="diet-tag veg">Vegetarian</span></div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 15</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="sides">
+          <div class="menu-card-img img-placeholder"><span>[ Coleslaw ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Creamy Coleslaw</p>
+              <span class="badge badge-grey">Sides</span>
+            </div>
+            <p class="menu-card-desc">Crisp cabbage and carrot in a light, creamy dressing. Fresh, simple, and always satisfying.</p>
+            <div class="menu-card-tags"><span class="diet-tag veg">Vegetarian</span></div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 10</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="sides">
+          <div class="menu-card-img img-placeholder"><span>[ Garlic Bread ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Garlic Bread</p>
+              <span class="badge badge-grey">Sides</span>
+            </div>
+            <p class="menu-card-desc">Toasted baguette slices generously buttered with garlic and herbs. Best with the pasta.</p>
+            <div class="menu-card-tags"><span class="diet-tag veg">Vegetarian</span></div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 14</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- DRINKS -->
+        <div class="menu-card" data-category="drinks">
+          <div class="menu-card-img img-placeholder"><span>[ Sobolo ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Sobolo (Hibiscus)</p>
+              <span class="badge badge-grey">Drinks</span>
+            </div>
+            <p class="menu-card-desc">Chilled hibiscus flower drink — naturally sweet, tangy, and refreshingly Ghanaian.</p>
+            <div class="menu-card-tags"><span class="diet-tag veg">Vegan</span></div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 10</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="drinks">
+          <div class="menu-card-img img-placeholder"><span>[ Chapman ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Chapman Cocktail</p>
+              <span class="badge badge-grey">Drinks</span>
+            </div>
+            <p class="menu-card-desc">The classic West African non-alcoholic cocktail — fruity, fizzy, and irresistibly refreshing.</p>
+            <div class="menu-card-tags"></div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 18</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="drinks">
+          <div class="menu-card-img img-placeholder"><span>[ Fresh Mango<br />Juice ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Fresh Mango Juice</p>
+              <span class="badge badge-grey">Drinks</span>
+            </div>
+            <p class="menu-card-desc">Freshly blended Ghanaian mango — no added sugar, just pure tropical sweetness.</p>
+            <div class="menu-card-tags"><span class="diet-tag veg">Vegan</span></div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 15</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SPECIALS -->
+        <div class="menu-card" data-category="specials">
+          <div class="menu-card-img img-placeholder"><span>[ Family Feast<br />(Feeds 4–6) ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Crowns Family Feast</p>
+              <span class="badge badge-primary">Special</span>
+            </div>
+            <p class="menu-card-desc">A shared feast for 4–6 people: jollof rice, grilled chicken, fried fish, plantain, coleslaw, and drinks included.</p>
+            <div class="menu-card-tags"><span class="diet-tag halal">Halal</span></div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 220</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="specials">
+          <div class="menu-card-img img-placeholder"><span>[ Student Combo<br />Deal ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Student Combo Deal</p>
+              <span class="badge badge-primary">Special</span>
+            </div>
+            <p class="menu-card-desc">Rice or banku + protein + a side + drink. Filling, affordable, made for student life.</p>
+            <div class="menu-card-tags"><span class="diet-tag halal">Halal</span></div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 30</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-category="specials">
+          <div class="menu-card-img img-placeholder"><span>[ Corporate<br />Lunch Box ]</span></div>
+          <div class="menu-card-body">
+            <div class="menu-card-top">
+              <p class="menu-card-name">Corporate Lunch Box</p>
+              <span class="badge badge-primary">Special</span>
+            </div>
+            <p class="menu-card-desc">A neatly packaged main + side + drink, perfect for office delivery. Minimum order of 5. Invoice available.</p>
+            <div class="menu-card-tags"></div>
+            <div class="menu-card-footer">
+              <span class="menu-price">GHS 55</span>
+              <a href="contact.html" class="btn btn-outline">Order This</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER SECTION -->
+  <section class="order-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Delivery</span>
+        <h2 class="section-heading">Ready to Order?</h2>
+        <p class="section-sub" style="margin:0 auto;">Order online through our delivery partners or contact us directly for pickup and catering.</p>
+      </div>
+      <div class="delivery-grid">
+        <div class="delivery-card">
+          <div class="delivery-logo img-placeholder"><span>Jumia Food</span></div>
+          <h3>Jumia Food</h3>
+          <p>Order on Jumia Food for fast delivery to your door. Track your order in real time.</p>
+          <a href="#" class="btn btn-primary" style="width:100%;justify-content:center;">Order on Jumia Food <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="delivery-card">
+          <div class="delivery-logo img-placeholder"><span>Bolt Food</span></div>
+          <h3>Bolt Food</h3>
+          <p>Quick and reliable delivery through Bolt Food. Great for last-minute orders.</p>
+          <a href="#" class="btn btn-primary" style="width:100%;justify-content:center;">Order on Bolt Food <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <p class="delivery-note"><i class="fas fa-location-dot"></i> Delivery available within 10km of each branch &mdash; Accra & Tema</p>
+    </div>
+  </section>
+
+  <!-- CATERING CTA -->
+  <div class="catering-cta">
+    <div class="container">
+      <h2>Feeding a Team or Planning an Event?</h2>
+      <p>Talk to us about our corporate catering packages — customisable menus, advance booking, and dedicated service.</p>
+      <a href="contact.html" class="btn btn-white">Get a Catering Quote</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Crowns Kitchen</div>
+        <div class="footer-tagline">Where Every Meal Tells a Story</div>
+        <p class="footer-desc">A food brand built on the belief that great food should not be limited by borders, budgets, or backgrounds.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/233XXXXXXXXX" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Our Menu</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p><i class="fas fa-map-marker-alt" style="color:#F0A07A;margin-right:6px;font-size:0.8rem;"></i> Airport Residential, Accra</p>
+        <p><i class="fas fa-map-marker-alt" style="color:#F0A07A;margin-right:6px;font-size:0.8rem;"></i> Community 5, Tema</p>
+        <a href="mailto:hello@crownkitchen.com.gh"><i class="fas fa-envelope" style="color:#F0A07A;margin-right:6px;font-size:0.8rem;"></i> hello@crownkitchen.com.gh</a>
+        <div style="margin-top:1rem;">
+          <div class="hours-row"><span>Mon – Fri</span><span>7am – 10pm</span></div>
+          <div class="hours-row"><span>Sat – Sun</span><span>8am – 11pm</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Crowns Kitchen. All rights reserved.</p>
+      <p class="footer-locations"><span>Accra</span> &middot; <span>Tema</span> &middot; Coming Soon: Kumasi &middot; Takoradi</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/233XXXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>
