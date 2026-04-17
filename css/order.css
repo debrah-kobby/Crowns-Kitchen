@@ -1,0 +1,412 @@
+/* ── ORDER MODAL ── */
+
+.ck-order-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 900;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.ck-order-modal {
+  position: fixed;
+  bottom: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 560px;
+  background: var(--white);
+  border-radius: 24px 24px 0 0;
+  z-index: 901;
+  transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 92vh;
+  overflow-y: auto;
+}
+
+/* open states */
+.ck-order-modal.ck-modal-open {
+  bottom: 0;
+}
+
+.ck-order-modal.ck-modal-open ~ .ck-order-overlay,
+.ck-order-overlay:has(~ .ck-order-modal.ck-modal-open) {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* JS handles overlay opacity since sibling selector support varies */
+.ck-overlay-active {
+  opacity: 1 !important;
+  pointer-events: all !important;
+}
+
+.ck-modal-inner {
+  padding: 28px 28px 40px;
+  position: relative;
+}
+
+.ck-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--grey);
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+
+.ck-modal-close:hover {
+  background: var(--cream);
+  color: var(--charcoal);
+}
+
+.ck-modal-item-summary {
+  padding-right: 40px;
+  margin-bottom: 20px;
+}
+
+.ck-modal-eyebrow {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.ck-modal-item-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.ck-modal-item-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.ck-modal-divider {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 20px;
+}
+
+/* delivery / pickup toggle */
+.ck-type-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 24px;
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.ck-type-btn {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--grey);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: var(--transition);
+}
+
+.ck-type-btn.ck-type-active {
+  background: var(--white);
+  color: var(--charcoal);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.ck-type-btn i {
+  font-size: 0.8rem;
+}
+
+/* form */
+.ck-order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ck-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.ck-conditional-fields {
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ck-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ck-field-full {
+  width: 100%;
+}
+
+.ck-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.ck-optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: rgba(var(--grey), 0.6);
+}
+
+.ck-input {
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--charcoal);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.2s ease;
+  width: 100%;
+}
+
+.ck-input:focus {
+  border-color: var(--primary);
+}
+
+.ck-input::placeholder {
+  color: #c5bfb8;
+}
+
+.ck-select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.ck-textarea {
+  resize: none;
+  line-height: 1.6;
+}
+
+/* submit */
+.ck-order-submit {
+  width: 100%;
+  padding: 15px;
+  background: #25d366;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+  margin-top: 4px;
+}
+
+.ck-order-submit i {
+  font-size: 1.1rem;
+}
+
+.ck-order-submit:hover {
+  background: #1ebe5a;
+  transform: translateY(-1px);
+}
+
+.ck-modal-note {
+  font-size: 0.72rem;
+  color: var(--grey);
+  text-align: center;
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .ck-form-row {
+    grid-template-columns: 1fr;
+  }
+  .ck-modal-inner {
+    padding: 24px 20px 36px;
+  }
+}
+
+/* ── ORDER MODAL (existing styles — append these to order.css) ── */
+
+/* Confirmation / code display */
+.ck-code-box {
+  background: var(--cream);
+  border: 1.5px dashed rgba(196, 98, 45, 0.35);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 320px;
+}
+
+.ck-code-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 0.5rem;
+}
+
+.ck-code-display {
+  font-family: var(--font-mono, "Courier New", monospace);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.18em;
+  margin-bottom: 0.85rem;
+  user-select: all;
+}
+
+.ck-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1.2rem;
+  border: 1.5px solid var(--primary-light);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.ck-copy-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+/* Catering submit button override */
+#ck-catering-form .ck-order-submit {
+  background: var(--primary);
+}
+
+#ck-catering-form .ck-order-submit:hover {
+  background: var(--primary-dark, #a84e1f);
+}
+
+/* ── APPEND TO order.css ── */
+
+/* Code display box (confirmation modal) */
+.ck-code-box {
+  background: var(--cream);
+  border: 1.5px dashed rgba(196, 98, 45, 0.35);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 320px;
+}
+
+.ck-code-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 0.5rem;
+}
+
+.ck-code-display {
+  font-family: var(--font-mono, "Courier New", monospace);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.18em;
+  margin-bottom: 0.85rem;
+  user-select: all;
+}
+
+.ck-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1.2rem;
+  border: 1.5px solid var(--primary-light);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.ck-copy-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+/* "Check order status" link below the code box */
+.ck-check-status-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 1.25rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--border);
+  padding-bottom: 2px;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ck-check-status-link:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Catering submit override */
+#ck-catering-form .ck-order-submit {
+  background: var(--primary);
+}
+
+#ck-catering-form .ck-order-submit:hover {
+  background: #b0551e;
+}

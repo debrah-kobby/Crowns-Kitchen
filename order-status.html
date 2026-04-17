@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check Order Status — Crowns Kitchen</title>
+    <meta
+      name="description"
+      content="Enter your Crowns Kitchen order code to check your order status."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      .status-page {
+        min-height: 100vh;
+        background: var(--cream);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .status-main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 1rem 60px;
+      }
+
+      .status-card {
+        background: var(--white);
+        border-radius: 24px;
+        padding: 48px 40px;
+        width: 100%;
+        max-width: 480px;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+        text-align: center;
+      }
+
+      .status-crown {
+        width: 56px;
+        height: 56px;
+        background: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.25rem;
+        color: white;
+        font-size: 1.3rem;
+      }
+
+      .status-card h1 {
+        font-family: var(--font-display);
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--charcoal);
+        margin-bottom: 0.4rem;
+      }
+
+      .status-card > p {
+        font-size: 0.88rem;
+        color: var(--grey);
+        line-height: 1.65;
+        margin-bottom: 2rem;
+      }
+
+      .status-input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 1rem;
+      }
+
+      .status-input {
+        flex: 1;
+        padding: 13px 16px;
+        border: 1.5px solid var(--border);
+        border-radius: 12px;
+        font-family: var(--font-mono, "Courier New", monospace);
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        color: var(--charcoal);
+        background: var(--white);
+        outline: none;
+        text-transform: uppercase;
+        transition: border-color 0.2s ease;
+      }
+
+      .status-input:focus {
+        border-color: var(--primary);
+      }
+
+      .status-input::placeholder {
+        font-weight: 400;
+        letter-spacing: 0.04em;
+        color: #c5bfb8;
+        font-family: var(--font-body);
+        text-transform: none;
+      }
+
+      .status-btn {
+        padding: 13px 20px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-family: var(--font-body);
+        font-size: 0.88rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+        transition:
+          background 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .status-btn:hover {
+        background: #b0551e;
+        transform: translateY(-1px);
+      }
+
+      /* Result panel */
+      #status-result {
+        display: none;
+        text-align: left;
+        margin-top: 1.5rem;
+        border-top: 1px solid var(--border);
+        padding-top: 1.5rem;
+        animation: fadeSlideUp 0.35s ease;
+      }
+
+      @keyframes fadeSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .result-status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+
+      .result-status-badge.received {
+        background: rgba(196, 98, 45, 0.12);
+        color: var(--primary);
+      }
+
+      .result-status-badge .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--primary);
+        animation: pulse 1.4s ease infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(0.7);
+        }
+      }
+
+      .result-heading {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--charcoal);
+        margin-bottom: 1rem;
+      }
+
+      .result-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .result-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        font-size: 0.85rem;
+      }
+
+      .result-row-label {
+        font-weight: 600;
+        color: var(--grey);
+        min-width: 110px;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding-top: 1px;
+      }
+
+      .result-row-value {
+        color: var(--charcoal);
+        line-height: 1.5;
+      }
+
+      .result-note {
+        background: rgba(196, 98, 45, 0.07);
+        border-left: 3px solid var(--primary);
+        border-radius: 0 8px 8px 0;
+        padding: 12px 14px;
+        font-size: 0.82rem;
+        color: var(--grey);
+        line-height: 1.6;
+      }
+
+      /* Error state */
+      #status-error {
+        display: none;
+        margin-top: 1rem;
+        padding: 14px 16px;
+        background: rgba(220, 50, 50, 0.07);
+        border: 1px solid rgba(220, 50, 50, 0.2);
+        border-radius: 10px;
+        font-size: 0.84rem;
+        color: #c03030;
+        text-align: left;
+        line-height: 1.6;
+      }
+
+      .status-back {
+        margin-top: 2rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.82rem;
+        color: var(--grey);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .status-back:hover {
+        color: var(--primary);
+      }
+
+      .status-help {
+        margin-top: 1.75rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+        font-size: 0.8rem;
+        color: var(--grey);
+        line-height: 1.7;
+      }
+
+      .status-help a {
+        color: var(--primary);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      @media (max-width: 520px) {
+        .status-card {
+          padding: 36px 24px;
+        }
+        .status-input-group {
+          flex-direction: column;
+        }
+        .status-btn {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body class="status-page">
+    <!-- NAVBAR -->
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-inner">
+            <a href="index.html" class="navbar-brand">
+              Crowns Kitchen
+              <span>Where Every Meal Tells a Story</span>
+            </a>
+            <div class="navbar-links">
+              <a href="index.html">Home</a>
+              <a href="menu.html">Menu</a>
+              <a href="about.html">About</a>
+              <a href="contact.html">Contact</a>
+            </div>
+            <div class="navbar-right">
+              <a href="menu.html" class="btn btn-primary">Order Now</a>
+              <button class="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-nav">
+          <a href="index.html">Home</a>
+          <a href="menu.html">Menu</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="menu.html" class="btn btn-primary">Order Now</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="status-main">
+      <div class="status-card">
+        <div class="status-crown">
+          <i class="fas fa-crown"></i>
+        </div>
+
+        <h1>Check Order Status</h1>
+        <p>
+          Enter the code from your order or catering confirmation to see your
+          details and current status.
+        </p>
+
+        <div class="status-input-group">
+          <input
+            type="text"
+            id="code-input"
+            class="status-input"
+            placeholder="e.g. CK-R7X2MJ"
+            maxlength="9"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="status-btn" id="check-btn">
+            <i class="fas fa-search"></i> Check
+          </button>
+        </div>
+
+        <div id="status-error">
+          <strong>Code not found.</strong> Double-check your code and try again.
+          If you just placed your order, wait a moment and refresh. <br /><br />
+          Can't find your code?
+          <a href="https://wa.me/233277786772" target="_blank" rel="noopener"
+            >Contact us on WhatsApp</a
+          >
+          and we'll help you out.
+        </div>
+
+        <!-- Result panel — shown after a successful lookup -->
+        <div id="status-result">
+          <div class="result-status-badge received">
+            <span class="dot"></span>
+            <span id="result-status-text">Received</span>
+          </div>
+
+          <p class="result-heading" id="result-heading">Your Order</p>
+
+          <div class="result-rows" id="result-rows">
+            <!-- Populated by JS -->
+          </div>
+
+          <div class="result-note" id="result-note">
+            We've received your order and our team is on it. We'll contact you
+            on the number provided to confirm and arrange delivery or pickup.
+          </div>
+        </div>
+
+        <a href="menu.html" class="status-back">
+          <i class="fas fa-arrow-left"></i> Back to menu
+        </a>
+
+        <div class="status-help">
+          Need help? Reach us on
+          <a href="https://wa.me/233277786772" target="_blank" rel="noopener"
+            >WhatsApp</a
+          >
+          or email
+          <a href="mailto:hello@crownkitchen.com.gh"
+            >hello@crownkitchen.com.gh</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+      const codeInput = document.getElementById("code-input");
+      const checkBtn = document.getElementById("check-btn");
+      const resultPanel = document.getElementById("status-result");
+      const errorPanel = document.getElementById("status-error");
+      const resultRows = document.getElementById("result-rows");
+      const resultHeading = document.getElementById("result-heading");
+      const resultNote = document.getElementById("result-note");
+
+      // Auto-format input: insert hyphen after "CK"
+      codeInput.addEventListener("input", () => {
+        let val = codeInput.value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+        if (val.length > 2) val = val.slice(0, 2) + "-" + val.slice(2, 8);
+        codeInput.value = val;
+      });
+
+      codeInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") checkOrder();
+      });
+
+      checkBtn.addEventListener("click", checkOrder);
+
+      function checkOrder() {
+        const code = codeInput.value.trim().toUpperCase();
+        resultPanel.style.display = "none";
+        errorPanel.style.display = "none";
+
+        if (!code || code.length < 5) {
+          errorPanel.style.display = "block";
+          return;
+        }
+
+        let orders = {};
+        try {
+          orders = JSON.parse(localStorage.getItem("ck_orders") || "{}");
+        } catch (e) {}
+
+        const record = orders[code];
+
+        if (!record) {
+          errorPanel.style.display = "block";
+          return;
+        }
+
+        // Build result rows
+        const isOrder = record.type === "order";
+        const isCatering = record.type === "catering";
+
+        resultHeading.textContent = isOrder
+          ? "Your Order"
+          : "Your Catering Request";
+
+        const rows = [];
+
+        rows.push({ label: "Code", value: code });
+        rows.push({ label: "Name", value: record.name });
+        rows.push({ label: "Phone", value: record.phone });
+
+        if (isOrder) {
+          rows.push({ label: "Item", value: record.item });
+          rows.push({ label: "Price", value: record.price });
+          rows.push({
+            label: "Type",
+            value: record.orderType === "delivery" ? "Delivery" : "Pickup",
+          });
+          if (record.orderType === "delivery" && record.address)
+            rows.push({ label: "Deliver to", value: record.address });
+          if (record.orderType === "pickup" && record.branch)
+            rows.push({
+              label: "Pickup branch",
+              value:
+                record.branch === "accra"
+                  ? "Airport Residential, Accra"
+                  : "Community 5, Tema",
+            });
+          if (record.notes) rows.push({ label: "Notes", value: record.notes });
+        }
+
+        if (isCatering) {
+          if (record.email) rows.push({ label: "Email", value: record.email });
+          if (record.eventType)
+            rows.push({
+              label: "Event type",
+              value: capitalise(record.eventType),
+            });
+          if (record.guests)
+            rows.push({ label: "Guests", value: record.guests });
+          if (record.date)
+            rows.push({ label: "Event date", value: formatDate(record.date) });
+          if (record.location)
+            rows.push({ label: "Location", value: record.location });
+          if (record.notes)
+            rows.push({ label: "Preferences", value: record.notes });
+        }
+
+        const placed = new Date(record.timestamp);
+        rows.push({
+          label: "Placed",
+          value: placed.toLocaleString("en-GB", {
+            dateStyle: "medium",
+            timeStyle: "short",
+          }),
+        });
+
+        resultRows.innerHTML = rows
+          .map(
+            (r) => `
+          <div class="result-row">
+            <span class="result-row-label">${r.label}</span>
+            <span class="result-row-value">${r.value}</span>
+          </div>
+        `,
+          )
+          .join("");
+
+        resultNote.textContent = isOrder
+          ? "We've received your order and our team is on it. We'll contact you on the number provided to confirm and arrange " +
+            (record.orderType === "delivery" ? "delivery." : "pickup.")
+          : "Our catering team has received your request and will reach out within 24 hours to discuss your menu and confirm pricing.";
+
+        resultPanel.style.display = "block";
+      }
+
+      function capitalise(str) {
+        if (!str) return "";
+        return str.charAt(0).toUpperCase() + str.slice(1).replace(/-/g, " / ");
+      }
+
+      function formatDate(dateStr) {
+        if (!dateStr) return "";
+        const d = new Date(dateStr + "T00:00:00");
+        return d.toLocaleDateString("en-GB", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      }
+
+      // Pre-fill code if passed in URL param: order-status.html?code=CK-XXXXXX
+      const params = new URLSearchParams(window.location.search);
+      const preCode = params.get("code");
+      if (preCode) {
+        codeInput.value = preCode.toUpperCase();
+        setTimeout(checkOrder, 300);
+      }
+    </script>
+  </body>
+</html>
